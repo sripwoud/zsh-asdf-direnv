@@ -4,6 +4,7 @@
 
 # set asdf install directory if not already specified
 [[ -z "$ASDF_DIR" ]] && export ASDF_DIR="$HOME/.asdf"
+[[ -z "$ASDF_DATA_DIR" ]] && export ASDF_DATA_DIR="$ASDF_DIR"
 
 # simple logging function
 _zsh_asdf_direnv_log() {
@@ -91,7 +92,7 @@ _zsh_asdf_direnv_load() {
 [[ ! -d "$ASDF_DIR" ]] && _zsh_asdf_direnv_install_asdf
 
 local asdf_direnv_dir
-asdf_direnv_dir="${ASDF_DATA_DIR:-"$ASDF_DIR/installs/direnv"}"
+asdf_direnv_dir="$ASDF_DIR/installs/direnv"
 
 [[ ! -d "$asdf_direnv_dir" ]] && _zsh_asdf_direnv_install_direnv
 
